@@ -1,6 +1,6 @@
 ##### System do zapisywania treści stron internetowych w bazie danych:
 
-Program napisany w języku python ver 3.7 z wykorzystaniem frameworku django.
+Program napisany w języku python ver 3.7 z wykorzystaniem frameworku django z zaimplementowanym REST API.
 
 Na dzień dzisiejszy system ma następujące funkcjonalności:
 - pobiera treść strony internetowej z podanego adresu url, czyści tekst z tagów i zapisuje czysty tekst w bazie danych
