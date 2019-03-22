@@ -43,7 +43,6 @@ class UrlTextViewSet(viewsets.ModelViewSet):
         serializer = UrlTextSerializer(instance)
         return Response(serializer.data)
 
-
     # tworzy rekord z adresem podanej strony, z tekstem ściągniętym z tej strony i z datą i czasem zapisu
     def create(self, request, *args, **kwargs):
         url_path = request.data['url_path']
@@ -55,7 +54,7 @@ class UrlTextViewSet(viewsets.ModelViewSet):
             serializer = UrlTextSerializer(url_text, many=False)
             return Response(serializer.data)
         else:
-            return Response (f"Server error, status code: {response.status_code}")
+            return Response(f"Server error, status code: {response.status_code}")
 
     def destroy(self, request, *args, **kwargs):
         url_text = self.get_object()
@@ -84,24 +83,6 @@ class UrlTextViewSet(viewsets.ModelViewSet):
                 url_text.save()
                 ok_response += 1
             else:
-                bad_response +=1
+                bad_response += 1
                 pass
-        # serializer = UrlTextSerializer(url_texts, many=True)
         return Response(f'Updated: {ok_response}, Not updated: {bad_response}')
-
-
-
-
-
-
-
-
-    # def perform_create(self, serializer):
-    #     serializer.save()
-    #
-    # def get_success_headers(self, data):
-    #     try:
-    #         return {'Location': str(data[api_settings.URL_FIELD_NAME])}
-    #     except (TypeError, KeyError):
-    #         return {}
-
