@@ -79,3 +79,17 @@ class UrlTextViewSet(viewsets.ModelViewSet):
                 bad_response += 1
                 pass
         return Response(f'Updated: {ok_response}, Not updated: {bad_response}')
+
+    # metoda /update_one - aktualizauje tekst z wybranego rekordu
+    @action(detail=True, methods=['post'])
+    def update_one(self, reqest, **kwargs):
+        url_text = self.get_object()
+        response = requests.get(url_text.url_path)
+        if response:
+            url_data = response.text
+            url_text.text = get_text(url_data)
+            url_text.upload_date = datetime.datetime.now()
+            url_text.save()
+        else:
+            return Response(f"Not updated, {response.status_code}")
+        return Response("Updated")
