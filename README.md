@@ -12,16 +12,18 @@ data ściągnięcia)
 zapisuje czysty tekst w bazie danych
 
 - wyświetla wszystkie zapisane rekordy: api/url_texts/
-- wyświetla konkretny podany rekord: api/url_txts/<id>/
+- wyświetla konkretny podany rekord: api/url_txts/id/
 
 - aktualizuje treści stron całej bazy danych na żądanie, po czym podaje ilość rekordów zaktualizowanych i 
 niezauktualizowanych: api/url_texts/update_all/
+- aktualizuje tekst z konkretnej strony (po podaniu id): api/url_texts/id/update_one/
 
 - pozwala filtrowac rekordy po adresach stron (np rekordy zawierające "onet"): api/url_texts/?url_path=onet
 
-- pozwala wyszukiwać treści po adresach stron: api/url_texts?search=<url>
+- pozwala wyszukiwać treści po adresach stron: api/url_texts?search=url
 
-- pozwala na usuwanie poszczególnych rekordów
+- pozwala na usuwanie wybranych rekordów
+- 
 
 
 System zostanie rozbudowany o możliwość pobierania plików graficznych.
