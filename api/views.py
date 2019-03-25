@@ -61,13 +61,6 @@ class UrlTextViewSet(viewsets.ModelViewSet):
         url_text.delete()
         return Response("Text deleted")
 
-    # metoda /delete_text - usuwa wybrany rekord
-    @action(detail=True)
-    def delete_text(self, request, **kwargs):
-        url_text = self.get_object()
-        url_text.delete()
-        return Response("Deleted")
-
     # metoda /update_all - aktualizauje tekst z każdego adresu strony zapisanego w bazie danych
     @action(detail=False, methods=['post'])
     def update_all(self, reqest, **kwargs):
